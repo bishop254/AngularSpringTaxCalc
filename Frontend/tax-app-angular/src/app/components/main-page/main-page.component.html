@@ -1,0 +1,40 @@
+
+  <header>
+    <div class="headerLogo">
+      <a routerLink="">
+        <img
+          src="https://natujenge.ke/assets/images/logo-wordmark.svg"
+          alt="Natujenge Logo"
+        />
+      </a>
+    </div>
+    <div class="headerLinks">
+      <a href="https://www.meliora.co.ke/articles/nvrjgtnsgh5ophs6mm">About</a>
+      <a routerLink="teams">Team</a>
+    </div>
+  </header>
+
+  <div class="mainContainer">
+    <mat-tab-group [selectedIndex]="selectedIdx">
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="tab-icon">paid</mat-icon>
+          Tax Calculator
+        </ng-template>
+        <app-calculator></app-calculator>
+      </mat-tab>
+
+      <mat-tab id="billTab">
+        <ng-template mat-tab-label>
+          <mat-icon class="tab-icon">money</mat-icon>
+          Bill Manager
+        </ng-template>
+        <app-bill></app-bill>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+
+  <footer>Powered by Natujenge</footer>
+  >
+
+

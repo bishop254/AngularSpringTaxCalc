@@ -1,0 +1,42 @@
+<div class="inputContainer">
+  <p>Net salary <span *ngIf="netPayFromCalculator$ | async">.</span></p>
+
+  <div class="salaryInput">
+    <label for="salary">KSH</label>
+    <input type="text" name="salary" [formControl]="netSalary" (keyup)="calculateBalance($event)" />
+  </div>
+</div>
+
+<div class="billContainer">
+  <div class="containerItem" *ngFor="let bill of allBills">
+    <span>{{ bill["billName"] }}</span>
+    <span> <span id="currency">Kshs</span> {{ bill["billAmount"] }}</span>
+
+    <div class="actions">
+      <mat-icon (click)="saveBill(bill)">save</mat-icon>
+      <mat-icon (click)="deleteBill(bill)">delete</mat-icon>
+    </div>
+  </div>
+
+  <hr />
+
+  <form [formGroup]="billForm" (submit)="addBill()" class="formContainer">
+    <div id="billInput">
+      <input type="text" formControlName="billName" placeholder="Rent"/>
+      <input type="number" formControlName="billAmount" placeholder="27999" />
+    </div>
+
+    <input type="submit" id="addBtn" value="Add" />
+  </form>
+
+  <hr />
+  <div class="balanceContainer">
+    <span>Balance</span>
+    <span> <span id="currency">Kshs</span> {{ balance }}</span>
+  </div>
+</div>
+
+
+<div *ngIf="dataSavedStatus$ | async as status">
+  Saved Status : {{status}}
+</div>

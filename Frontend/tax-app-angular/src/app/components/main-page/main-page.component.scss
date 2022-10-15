@@ -1,0 +1,36 @@
+app-root {
+  position: relative;
+}
+
+.mainContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 95px;
+}
+
+::ng-deep .mat-tab-label {
+  width: 400px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 38px;
+}
+
+::ng-deep .mat-tab-labels .mat-tab-label-active {
+  background: #d9d9d9;
+  border-radius: 8px;
+  transition: 2s ease-out all;
+}
+
+::ng-deep .mat-ink-bar {
+  display: none;
+}
+
+::ng-deep .mat-icon {
+  font-size: 35px;
+  margin: 0 10px;
+  height: 100% !important;
+  width: 100% !important;
+}
