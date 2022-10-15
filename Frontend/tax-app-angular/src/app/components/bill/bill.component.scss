@@ -1,0 +1,58 @@
+.containerItem{
+  .actions{
+    display: none;
+  }
+  
+  &:hover{
+    .actions{
+      transition: 1s ease-in-out all;
+      display: flex;
+    }
+  }
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-top: 45px;
+  margin-bottom: 100px;
+  margin-top: 45px;
+  margin-bottom: 100px;
+
+  #billInput {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  input {
+    width: 256px;
+    height: 76px;
+    border: none;
+    margin: 20px;
+    text-align: center;
+    border-radius: 8px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+  }
+
+  #addBtn {
+    background: black;
+    color: white;
+    width: 150px;
+    cursor: pointer;
+  }
+
+}
+
+.balanceContainer{
+  margin: 0;
+  margin-top: 20px;
+}
+
+::ng-deep .mat-icon {
+  margin: 0;
+}
