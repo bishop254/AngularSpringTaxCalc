@@ -1,0 +1,50 @@
+<div class="inputContainer">
+  <p>Gross salary</p>
+  <div class="salaryInput">
+    <label for="salary">KSH</label>
+    <input type="number" name="salary" [formControl]="grossSalary" (keyup)="calculateTax($event)"/>
+  </div>
+</div>
+
+<div class="calculatorContainer">
+  <div class="containerItem">
+    <span>Net Pay</span>
+    <span> <span id="currency">Kshs</span> {{netSalary}}</span>
+  </div>
+
+  <div class="containerItem">
+    <span>NSSF Contribution</span>
+    <span> <span id="currency">Kshs</span>{{nssfRate}} </span>
+  </div>
+
+  <div class="containerItem">
+    <span>Taxable Income</span>
+    <span> <span id="currency">Kshs</span> {{taxableAmount}}</span>
+  </div>
+
+  <div class="containerItem">
+    <span>Tax before Relief</span>
+    <span> <span id="currency">Kshs</span>{{taxBeforeRelief}}</span>
+  </div>
+
+  <div class="containerItem">
+    <span>Personal Relief</span>
+    <span> <span id="currency">Kshs</span>{{personalRelief}}</span> 
+  </div>
+
+  <div class="containerItem">
+    <span>Insurance/NHIF Relief</span>
+    <span> <span id="currency">Kshs</span>{{insuranceRelief}}</span>
+  </div>
+
+  <div class="containerItem">
+    <span>PAYE</span>
+    <span> <span id="currency">Kshs</span>{{incomeTax}} </span>
+  </div>
+
+  <div class="containerItem">
+    <span>NHIF Contribution</span>
+    <span> <span id="currency">Kshs</span>{{nhifRate}} </span>
+  </div>
+  <button (click)="manageBill()">manage bills</button>
+</div>
