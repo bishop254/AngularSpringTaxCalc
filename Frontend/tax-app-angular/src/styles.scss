@@ -1,1 +1,114 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+header {
+  height: 100px;
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .headerLogo img {
+    width: 200px;
+    margin: 0 25px;
+  }
+
+  .headerLinks {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin: 0 20px;
+
+    a {
+      text-decoration: none;
+      color: black;
+      font-family: "Roboto";
+      font-size: 22px;
+      padding: 15px;
+      border-radius: 8px;
+      transition: 0.7s ease-out all;
+
+      &:hover {
+        background: #d9d9d9;
+      }
+    }
+  }
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+    width: 100%;
+    background: #fff;
+    font-family: "Inter";
+    margin-top: 30px;
+    font-size: 32px;
+    color: #5f6063;
+    border-top: 1px solid #d9d9d9;
+}
+
+.inputContainer {
+  margin-top: 32px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 32px;
+
+  .salaryInput {
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    background: #f5f5f5;
+    margin-top: 25px;
+
+    label {
+      height: 70px;
+      text-align: center;
+      width: 20%;
+      background: #d9d9d9;
+      line-height: 70px;
+      border-radius: 8px;
+    }
+
+    input {
+      height: 92%;
+      width: 90%;
+      border: none;
+      background: #f5f5f5;
+      font-size: inherit;
+      text-align: right;
+      padding-right: 5px;
+    }
+  }
+}
+
+.calculatorContainer, .billContainer {
+  height: fit-content;
+  background: #f5f5f5;
+  margin-top: 65px;
+  border-radius: 8px;
+  padding: 60px;
+
+  .containerItem, .balanceContainer, .balanceContainer {
+    display: flex;
+    justify-content: space-between;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    margin-bottom: 40px;
+
+    #currency {
+      padding-right: 20px;
+    }
+  }
+}
