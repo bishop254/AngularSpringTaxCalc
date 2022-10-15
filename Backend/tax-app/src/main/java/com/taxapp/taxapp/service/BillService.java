@@ -29,6 +29,17 @@ private final BillRepository billRepository;
 
     }
 
+    public List<Bill> saveListOfBills(List<Bill> bills){
+
+        for (Bill bill:bills){
+            billRepository.save(bill);
+            bill.setCreatedOn(LocalDateTime.now());
+        }
+
+        return bills;
+
+    }
+
     public List<Bill> getAll(){
         log.info("About to get all bills");
         List<Bill> allBills=billRepository.findAll();
@@ -52,6 +63,40 @@ public Optional<Bill> findById(Long id){
         log.info("found all bills containig {}: {}",text,bills);
 
         return bills;
+    }
+
+public Bill delete(Long id) {
+    boolean exist = billRepository.existsById(id);
+    if (!exist) {
+        throw new IllegalStateException("bill doesn't exist");
+
+    }
+    billRepository.deleteById(id);
+    return null;
+}
+
+    public Optional<Bill> update(Long id, String name, Integer amount) {
+        Optional<Bill> billOptional=billRepository.findById(id);
+        log.info("bill found with id {}", id);
+        if (billOptional.isPresent()) {
+            Bill bill = billOptional.get();
+            if (id != null && id > 0 && !Objects.equals(billOptional.get(), id)) {
+                bill.setId(id);
+
+            }
+            if (name != null && name.length() > 0 && !Objects.equals(billOptional.get(), name)) {
+                bill.setName(name);
+
+            }
+            if (amount != null && id > 0 && !Objects.equals(billOptional.get(), amount) ){
+                bill.setAmount(amount);
+
+            }
+            bill=billRepository.save(bill);
+            return Optional.of(bill);
+        }
+
+        return billOptional;
     }
 
 
