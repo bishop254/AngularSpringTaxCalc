@@ -10,6 +10,7 @@ import {
 import { Observable, map, catchError, of } from 'rxjs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { AllBillsComponent } from '../all-bills/all-bills.component';
 
 @Component({
   selector: 'app-bill',
