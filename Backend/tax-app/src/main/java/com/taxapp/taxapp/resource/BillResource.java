@@ -26,6 +26,13 @@ public class BillResource {
         Bill newBill= billService.createBill(bill);
         return new ResponseEntity<>(newBill,HttpStatus.OK);
     }
+    @PostMapping("/bills")
+    ResponseEntity<List<Bill>> createBills(@RequestBody List<Bill> bills){
+        log.info("Request to create a bill");
+
+        List<Bill> newBills= billService.saveListOfBills(bills);
+        return new ResponseEntity<>(newBills,HttpStatus.OK);
+    }
 
     @GetMapping("/bill")
     ResponseEntity<List<Bill>> findAll(){
@@ -52,4 +59,21 @@ public class BillResource {
 
         return billService.search(text);
     }
+
+    @DeleteMapping(path="/bill/{id}")
+    ResponseEntity delete(@PathVariable("id") Long id){
+        log.info(" About to delete bill with id :  {}",id);
+        Bill deletedMember=billService.delete(id);
+        return new ResponseEntity(deletedMember,HttpStatus.OK);
+    }
+
+    @PutMapping("/bill/{id}")
+    ResponseEntity update(@RequestBody Bill bill, @PathVariable Long id){
+        log.info("Request to update  bill with id: {}",id);
+        Optional<Bill> updatedBill=null;
+        updatedBill=billService.update(id,bill.getName(),bill.getAmount());
+        log.info("updated bill: {}",updatedBill);
+        return new ResponseEntity<>(updatedBill,HttpStatus.OK);
+    }
+
 }
