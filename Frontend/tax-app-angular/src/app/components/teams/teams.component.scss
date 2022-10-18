@@ -1,0 +1,18 @@
+.teamContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 40px;
+
+  .example-card {
+    max-width: 250px;
+    min-width: 150px;
+    margin: 20px 0;
+  }
+
+  .example-header-image {
+    background-image: url("https://natujenge.ke/assets/images/logo-wordmark.svg");
+    background-size: cover;
+  }
+}
