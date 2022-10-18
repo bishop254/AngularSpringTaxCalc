@@ -14,14 +14,14 @@ header {
   align-items: center;
 
   .headerLogo img {
-    width: 200px;
+    width: 60%;
     margin: 0 25px;
   }
 
   .headerLinks {
     display: flex;
-    justify-content: space-between;
-    width: 200px;
+    justify-content: space-evenly;
+    width: 20%;
     margin: 0 20px;
 
     a {

@@ -1,13 +1,40 @@
-.containerItem{
-  .actions{
+.containerItem {
+  align-items: center;
+  .actions {
     display: none;
   }
-  
-  &:hover{
-    .actions{
-      transition: 1s ease-in-out all;
+
+  &:hover {
+    .actions {
       display: flex;
+      position: absolute;
+      border: 3px solid;
+      border-radius: 8px;
+      left: 50%;
     }
+  }
+}
+
+#saveAll{
+  width: 100%;
+  text-align: right;
+
+  button{
+        background: black;
+    color: white;
+    background: black;
+    color: white;
+    width: 150px;
+    cursor: pointer;
+    width: 150px;
+    height: 76px;
+    border: none;
+    border-radius: 8px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    
   }
 }
 
@@ -45,10 +72,9 @@
     width: 150px;
     cursor: pointer;
   }
-
 }
 
-.balanceContainer{
+.balanceContainer {
   margin: 0;
   margin-top: 20px;
 }

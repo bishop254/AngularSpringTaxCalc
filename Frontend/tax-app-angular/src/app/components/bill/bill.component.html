@@ -3,14 +3,19 @@
 
   <div class="salaryInput">
     <label for="salary">KSH</label>
-    <input type="text" name="salary" [formControl]="netSalary" (keyup)="calculateBalance($event)" />
+    <input
+      type="text"
+      name="salary"
+      [formControl]="netSalary"
+      (keyup)="calculateBalance($event)"
+    />
   </div>
 </div>
 
 <div class="billContainer">
   <div class="containerItem" *ngFor="let bill of allBills">
-    <span>{{ bill["billName"] }}</span>
-    <span> <span id="currency">Kshs</span> {{ bill["billAmount"] }}</span>
+    <span>{{ bill["name"] }}</span>
+    <span> <span id="currency">Kshs</span> {{ bill["amount"] }}</span>
 
     <div class="actions">
       <mat-icon (click)="saveBill(bill)">save</mat-icon>
@@ -18,11 +23,16 @@
     </div>
   </div>
 
+  <div id="saveAll" *ngIf="allBills.length > 1">
+    <button (click)="saveAllBills(allBills)" >
+      Save All
+    </button>
+  </div>
   <hr />
 
   <form [formGroup]="billForm" (submit)="addBill()" class="formContainer">
     <div id="billInput">
-      <input type="text" formControlName="billName" placeholder="Rent"/>
+      <input type="text" formControlName="billName" placeholder="Rent" />
       <input type="number" formControlName="billAmount" placeholder="27999" />
     </div>
 
@@ -36,7 +46,4 @@
   </div>
 </div>
 
-
-<div *ngIf="dataSavedStatus$ | async as status">
-  Saved Status : {{status}}
-</div>
+<div *ngIf="dataSavedStatus$ | async as status">...</div>

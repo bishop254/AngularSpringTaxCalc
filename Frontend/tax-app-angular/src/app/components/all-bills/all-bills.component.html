@@ -1,0 +1,39 @@
+<header>
+  <div class="headerLogo">
+    <a routerLink="">
+      <img
+        src="https://natujenge.ke/assets/images/logo-wordmark.svg"
+        alt="Natujenge Logo"
+      />
+    </a>
+  </div>
+  <div class="headerLinks">
+    <a href="https://www.meliora.co.ke/articles/nvrjgtnsgh5ophs6mm">About</a>
+  </div>
+</header>
+
+<div *ngIf="allBills$ | async as bills" class="allBillsContainer">
+
+  <div *ngFor="let bill of bills; let i = index">
+    <mat-card class="bill-card">
+      <mat-card-title>{{ bill["name"].toUpperCase() }}</mat-card-title>
+      <mat-card-subtitle>{{
+        bill["createdOn"] ? bill["createdOn"].split("T")[0] : "NULL"
+      }}</mat-card-subtitle>
+      <mat-card-content>
+        <p>Kshs {{ bill["amount"] }}</p>
+        <p>Time: {{
+        bill["createdOn"] ? bill["createdOn"].split("T")[1] : "NULL"
+      }} </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button (click)="editBill(bill['id'])">EDIT</button>
+        <button mat-button (click)="deleteBill(bill['id'])">DELETE</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+
+  <small *ngIf="deleteBill$ | async">...</small>
+</div>
+
+<footer>Powered by Natujenge</footer>

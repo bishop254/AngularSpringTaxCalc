@@ -11,6 +11,13 @@ const routes: Routes = [
         (mod) => mod.TeamsComponent
       ),
   },
+  {
+    path: 'allBills',
+    loadComponent: () =>
+      import('./components/all-bills/all-bills.component').then(
+        (mod) => mod.AllBillsComponent
+      ),
+  },
   { path: '**', component: MainPageComponent },
 ];
 
