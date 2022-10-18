@@ -19,6 +19,10 @@ export class BillServService {
     return this.http.post('http://localhost:8080/api/bill', data);
   }
 
+  saveAllBillsToBackend(data: any[]): Observable<any> {
+    return this.http.post('http://localhost:8080/api/bills', data);
+  }
+
   getAllBills(): Observable<Record<string, string>[]> {
     return this.http.get<Record<string, string>[]>(
       'http://localhost:8080/api/bill'
