@@ -16,32 +16,32 @@ export class TeamsComponent implements OnInit {
     {
       name: 'Karanja Chiuri',
       title: 'Frontend Developer',
-      img: '/karanja.jpg',
+      img: 'https://github.com/bishop254/AngularSpringTaxCalc/blob/main/Frontend/tax-app-angular/src/assets/team/karanja.jpg?raw=true',
       desc: 'Love solving chllenges with code',
     },
     {
       name: 'Mary Wanjiku',
       title: 'Backend Developer',
-      img: 'team/mary.jpg',
+      img: 'https://github.com/bishop254/AngularSpringTaxCalc/blob/main/Frontend/tax-app-angular/src/assets/team/mary.jpg?raw=true',
       desc: 'Passionate about Java & SpringBoot',
+    },
+    {
+      name: 'Steve Wakhungu',
+      title: 'Frontend Developer',
+      img: 'https://github.com/bishop254/AngularSpringTaxCalc/blob/main/Frontend/tax-app-angular/src/assets/team/Steve.jpeg?raw=true',
+      desc: 'A lifelong learner; currently learning web development.',
     },
     {
       name: 'Robert G Githinji',
       title: 'Full Stack Developer',
-      img: 'rob.jpg',
+      img: 'https://github.com/bishop254/AngularSpringTaxCalc/blob/main/Frontend/tax-app-angular/src/assets/team/rob.jpg?raw=true',
       desc: 'I am a passionate software developer looking forward to grow my skills and contribute to Natujenge community',
     },
     {
       name: 'Adam Ibrahim',
       title: 'Frontend Developer',
-      img: '/Adam.jpg',
-      desc: 'I am a passionate software developer looking forward to grow my skills and contribute to Natujenge community',
-    },
-    {
-      name: 'Steve Wakhungu',
-      title: 'Frontend Developer',
-      img: '/Steve.jpeg',
-      desc: 'A lifelong learner; currently learning web development.',
+      img: 'https://github.com/bishop254/AngularSpringTaxCalc/blob/main/Frontend/tax-app-angular/src/assets/team/Adam.jpg?raw=true',
+      desc: 'I have experience in HTML, CSS, and JavaScript. Combined with my recent internship in front-end web development, I am confident I have the skills to help Natujenge Community succeed.',
     },
   ];
 
