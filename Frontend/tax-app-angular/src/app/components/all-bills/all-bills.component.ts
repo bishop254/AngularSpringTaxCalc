@@ -10,11 +10,20 @@ import { BillServService } from 'src/app/services/bill-serv.service';
 import { catchError, map, Observable, of } from 'rxjs';
 import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-all-bills',
   standalone: true,
-  imports: [CommonModule, RouterModule, MatSnackBarModule, MatIconModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    MatSnackBarModule,
+    MatIconModule,
+    MatCardModule,
+    MatButtonModule,
+  ],
   templateUrl: './all-bills.component.html',
   styleUrls: ['./all-bills.component.scss'],
 })
@@ -57,23 +66,23 @@ export class AllBillsComponent implements OnInit {
     );
   }
 
+  editBill(id: string) {
+    console.log(id);
+  }
+
   deleteBill(id: string) {
     this.deleteBill$ = this.billServ.deleteBill(parseInt(id)).pipe(
       map((resp: any) => {
-        // if (Object.keys(resp).includes('status')) {
-        //   if (resp['status'] == 500) {
-        //     this.snackBar.open(resp['message'], 'Deletion Status', {
-        //       duration: 3500,
-        //     });
-        //   }
-        // } else if (resp == null) {
-        // }
-        this.snackBar.open('Bill Deleted', 'Deletion Status', {
-          duration: 3500,
-        });
-        this.loadBills();
-
-        return null;
+        console.log(resp);
+        if (resp == null) {
+          this.snackBar.open('Bill Deleted', 'Deletion Status', {
+            duration: 3500,
+          });
+          this.loadBills();
+          return null;
+        } else {
+          return null;
+        }
       }),
       catchError((error) => {
         this.snackBar.open(error.message, 'Deletion Status', {
