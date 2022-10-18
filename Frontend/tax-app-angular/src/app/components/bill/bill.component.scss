@@ -15,6 +15,29 @@
   }
 }
 
+#saveAll{
+  width: 100%;
+  text-align: right;
+
+  button{
+        background: black;
+    color: white;
+    background: black;
+    color: white;
+    width: 150px;
+    cursor: pointer;
+    width: 150px;
+    height: 76px;
+    border: none;
+    border-radius: 8px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    
+  }
+}
+
 .formContainer {
   display: flex;
   flex-direction: column;

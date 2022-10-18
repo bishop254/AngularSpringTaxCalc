@@ -68,7 +68,7 @@ export class BillComponent implements OnInit {
   calculateBalance(event?: Event) {
     let temp = 0;
     this.allBills.forEach((bill) => {
-      temp += bill['billAmount'] as number;
+      temp += bill['amount'] as number;
     });
     this.balance = this.netSalary.value - temp;
     return this.balance;
@@ -76,8 +76,8 @@ export class BillComponent implements OnInit {
 
   addBill(event?: Event) {
     let newBill: Record<string, string | number> = {
-      billName: this.billForm.controls['billName'].value,
-      billAmount: this.billForm.controls['billAmount'].value,
+      name: this.billForm.controls['billName'].value,
+      amount: this.billForm.controls['billAmount'].value,
     };
 
     let billExists = false;
@@ -85,14 +85,14 @@ export class BillComponent implements OnInit {
     billExists =
       this.allBills.filter(
         (bill) =>
-          (bill['billName'] as string).toLowerCase() ==
-          (newBill['billName'] as string).toLowerCase()
+          (bill['name'] as string).toLowerCase() ==
+          (newBill['name'] as string).toLowerCase()
       ).length > 0
         ? true
         : false;
 
     if (billExists == false) {
-      if ((newBill['billAmount'] as number) > 0) {
+      if ((newBill['amount'] as number) > 0) {
         this.allBills.push(newBill);
         this.billForm.reset();
         this.snackBar.open('New Bill Added', 'Bill Status', { duration: 3000 });
@@ -111,14 +111,44 @@ export class BillComponent implements OnInit {
 
   saveBill(bill: Record<string, string | number>) {
     let data = {
-      name: bill['billName'],
-      amount: bill['billAmount'],
+      name: bill['name'],
+      amount: bill['amount'],
     };
 
     this.dataSavedStatus$ = this.billServ.saveBillToBackend(data).pipe(
       map((resp) => {
         if (resp) {
           this.snackBar.open('Bill saved to our DB', 'API Save Status', {
+            duration: 3000,
+          });
+
+          return true;
+        }
+        this.snackBar.open(
+          'Something went wrong saving our new bill',
+          'API Save Status',
+          {
+            duration: 3000,
+          }
+        );
+        return false;
+      }),
+      catchError((error: any) => {
+        this.snackBar.open(error.message, 'API Save Status', {
+          duration: 3000,
+        });
+        return of(false);
+      })
+    );
+  }
+
+  saveAllBills(bills: Record<string, string | number>[]) {
+    console.log(bills);
+
+    this.dataSavedStatus$ = this.billServ.saveAllBillsToBackend(bills).pipe(
+      map((resp) => {
+        if (resp) {
+          this.snackBar.open('All Bills saved to our DB', 'API Save Status', {
             duration: 3000,
           });
 
